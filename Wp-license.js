@@ -14,7 +14,7 @@ const db = firebase.database();
 function checkLicense(){
 var licenseKey = licenseKey;
 if(licenseKey==null||licenseKey==""){
-location.href = "https://t.me/whiteactionyt?text=I have not license : this safe license price?";
+location.href = "https://t.me/whiteactionyt?text=I have not license : this safe license link price?";
 }else {
 const licensesRef = db.ref('licenses');
 licensesRef.child(licenseKey).once('value', (snapshot) => {
@@ -31,7 +31,7 @@ if (data.blogID_1 === blogID) {
     location.href = "https://t.me/whiteactionyt?text=this is my license :"+ licenseKey + ",This  blogger Id : " + blogID +  "add now";
 }
 } else {
-location.href = "https://t.me/whiteactionyt?text=I have not license : this safe license price";
+location.href = "https://t.me/whiteactionyt?text=I have not license : this safe link license price";
 }
 });
 };
