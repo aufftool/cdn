@@ -2,6 +2,7 @@
 const firebaseConfig = {
   apiKey: "AIzaSyDAcaf7DvzHxp3poJzC47nlnTiwP0Ha2Rk",
   authDomain: "madhav-whiteactionyt.firebaseapp.com",
+  databaseURL: "https://madhav-whiteactionyt-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "madhav-whiteactionyt",
   storageBucket: "madhav-whiteactionyt.appspot.com",
   messagingSenderId: "198109045455",
