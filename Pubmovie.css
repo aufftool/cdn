@@ -1,0 +1,89 @@
+  
+.xcontainer {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.xcontainer .breadcrumb {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.xcontainer .movie-card {
+  text-align: center;
+}
+
+.xcontainer .movie-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.xcontainer .movie-details {
+  margin-top: 20px;
+}
+
+.xcontainer .movie-details h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+.xcontainer .movie-details p {
+  color: #777;
+  margin: 10px 0;
+}
+
+.xcontainer .rating {
+  color: gold;
+}
+
+.xcontainer .buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.xcontainer .buttons button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.xcontainer .buttons .web-link,
+.xcontainer .buttons .play-movie {
+  background-color: #808080;
+}
+
+.xcontainer .buttons .web-link {
+  background-color: #555555;
+}
+
+.xcontainer .buttons button:hover {
+  opacity: 0.8;
+}
+
+.xcontainer .download-options {
+  margin-top: 20px;
+}
+
+.xcontainer .download {
+  display: block;
+  background-color: #FF69B4;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.xcontainer .download:hover {
+  background-color: #FF1493;
+}
