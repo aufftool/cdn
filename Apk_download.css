@@ -1,0 +1,52 @@
+.file , table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.file , th, td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.file ,th {
+  position: relative;
+  font-weight: bold;
+}
+
+.file ,th:first-child, td:first-child {
+  text-align: left;
+}
+
+.file ,th:last-child, td:last-child {
+  text-align: right;
+}
+
+.file , thead th {
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #ccc;
+}
+
+.file , tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.download-btn {
+  background-color: #ff6600;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: not-allowed;
+  font-size: 16px;
+}
+ .download-btn.active {
+  cursor: pointer;
+  background-color: #4CAF50;
+}
+
+/* Timer text */
+.timer {
+  margin-top: 20px;
+  font-size: 18px;
+}
