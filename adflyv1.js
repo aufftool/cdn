@@ -53,7 +53,7 @@ let realurl;
 if (adflylink === '') {
     realurl = aesCrypto.decrypt(convertstr($.urlParam('o')), convertstr('root'));
 } else {
-    realurl = adflylink + cookiekName;
+    realurl = adflylink + get_cookie("url");
 }
 window.open(realurl, '_blank');
             
