@@ -1,0 +1,161 @@
+
+    .containertera {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Responsive Width Adjustments */
+@media (max-width: 1024px) {
+    .containertera.containertera {
+        max-width: 90%;
+        padding: 15px;
+    }
+  .containertera  .input-containertera, .embed-link, .video-player {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+  .containertera  .containertera {
+        max-width: 95%;
+        padding: 10px;
+    }
+ .containertera   .input-containertera, .embed-link, .video-player {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+  .containertera  .containertera {
+        max-width: 100%;
+        padding: 5px;
+    }
+    .input-containertera, .embed-link, .video-player {
+        max-width: 100%;
+    }
+}
+
+/* Progress Bar Styling */
+.containertera .progress-bar {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, #00aaff, #9900ff);
+    border-radius: 4px;
+    animation: loading 2s infinite;
+    margin: 0 auto 5px;
+}
+
+/* Animation for Progress Bar */
+@keyframes loading {
+    0% { width: 0; }
+    50% { width: 80%; }
+    100% { width: 100px; }
+}
+
+/* Text Styling */
+.containertera .text {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.containertera .input-containertera {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 5px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.containertera .url-input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    background-color: transparent;
+}
+
+.containertera .paste-button, .download-button {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    margin-left: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.containertera .paste-button {
+    font-size: 14px;
+    color: #333;
+}
+
+.containertera .download-button {
+    
+    color: #333;
+    
+}
+
+.containertera .paste-button:hover, .download-button:hover {
+    background-color: #e5e7eb;
+}
+
+.containertera .download-button:hover {
+    background-color: #005bb5;
+}
+
+.containertera h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.containertera .video-player {
+    width: 100%;
+    height: 300px;
+    background-color: #1a1a1a;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+
+.containertera .copy-button, .download-button, .tool-button, .download-app-button, .telegram-button {
+    background: #0072ff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 5px;
+}
+ .containertera .icon {
+    width: 100%;        /* Set width to 100% to make it responsive */
+    max-width: 20px;    /* Limit maximum size */
+    height: 20px;       /* Maintain aspect ratio */
+    fill: #FFFFFF;      /* Default fill color */
+    margin: 4px;        /* Space around the icon */
+    transition: fill 0.3s; /* Transition effect on hover */
+}
+
+.containertera .icon:hover {
+    fill: yellowgreen;      /* Change color on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+   .containertera .icon {
+        max-width: 20px;  /* Adjust maximum size for smaller screens */
+    }
+}
