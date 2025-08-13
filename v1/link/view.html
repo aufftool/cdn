@@ -1,0 +1,356 @@
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>View Post</title>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/gh/aufftool/cdn@refs/heads/main/ads.js"></script>
+   -->
+<!-- Link to external CSS file -->
+<style>
+          /* Advanced CSS Styling */
+          body {
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              background-color: #e9ecef;
+              margin: 0;
+              padding: 0;
+              color: #495057;
+          }
+
+          #container {
+              max-width: 900px;
+              margin: 30px auto;
+              background: #ffffff;
+              padding: 30px;
+              border-radius: 12px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              border: 1px solid #dee2e6;
+              transition: box-shadow 0.3s ease, transform 0.3s ease;
+          }
+
+          #container:hover {
+              box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+              transform: translateY(-2px);
+          }
+
+          h1 {
+              font-size: 24px;
+              color: #212529;
+              text-align: center;
+              margin-bottom: 20px;
+          }
+
+          h2 {
+              font-size: 20px;
+              color: #333;
+              margin-top: 0;
+              margin-bottom: 15px;
+          }
+
+          #postContent {
+              margin-bottom: 20px;
+          }
+
+          p {
+              font-size: 16px;
+              line-height: 1.6;
+              margin-bottom: 15px;
+          }
+
+          a {
+              color: #007bff;
+              text-decoration: none;
+              transition: color 0.3s ease;
+          }
+
+          a:hover {
+              color: #0056b3;
+              text-decoration: underline;
+          }
+
+          .post-footer {
+              text-align: center;
+              margin-top: 30px;
+          }
+
+          .copy-link {
+              display: inline-block;
+              background-color: #28a745;
+              color: #fff;
+              border: none;
+              padding: 10px 10px;
+              border-radius: 6px;
+             /* height:20px;*/
+              cursor: pointer;
+              font-size: 12px;
+              font-weight: 500;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+              transition: background-color 0.3s ease, box-shadow 0.3s ease;
+          }
+
+          .copy-link:hover {
+              background-color: #218838;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+          }
+
+          .copy-link:focus {
+              outline: none;
+          }
+
+          #postLinkInput {
+              position: absolute;
+              left: -9999px;
+          }.buttonn {
+      background-color: #007bff;
+
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 360px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-right: 10px;
+  }
+</style>
+<style>
+      body {
+      font-family: Arial, sans-serif;
+  }
+
+  .popup {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .popup-content {
+      position: relative;
+      margin: 15% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 400px;
+      background-color: #fff;
+      border-radius: 10px;
+      text-align: center;
+  }
+
+  .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+  }
+
+  .download-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #007bff;
+      text-decoration: none;
+      border-radius: 5px;
+      display: none; /* Initially hidden */
+  }
+
+  .download-link:hover {
+      background-color: #0056b3;
+  }
+
+  /* Ads section styling */
+  .ads {
+      margin: 20px auto;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border: 1px solid #ddd;
+     /* font-size: 14px;*/
+      color: #333;
+  }
+
+  /* Countdown timer styling */
+  #countdown {
+      font-size: 16px;
+      margin-top: 20px;
+      color: #ff0000; /* Red color for visibility */
+  }.ad-container {
+              width: 290px;
+              height: 250px;
+              border: 1px solid #ccc;
+              text-align: center;
+              padding: 5px;
+              background-color: #f9f9f9;
+          }
+
+          .ad-container img {
+              max-width: 100%;
+              height: 230px;
+          }
+
+          .ad-container a {
+              text-decoration: none;
+              color: #007bff;
+              font-weight: bold;
+          }
+</style>
+<style>
+  /* The Modal (background) */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  /* Modal Content (image) */
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+
+  /* Caption of Modal Image (Image Text) */
+  .caption {
+    text-align: center;
+    color: #ccc;
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  /* Close Button */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span
+    onclick="location.href='https://l.wl.co/l?u=https://www.highrevenuenetwork.com/e889cteg?key=8afdcc96dd9a49cf69a71113480ba662'"
+    class="close"
+    >&times;</span
+  >
+  <img class="modal-content" id="img01" />
+  <div class="caption" id="caption"></div>
+</div>
+
+<div id="container">
+  <!-- <h1>Post Details</h1>-->
+  <div id="postContent" style="text-align: center;">
+    loading... wait 2 second
+  </div>
+  <div class="post-footer">
+    <div
+      id="div-gpt-ad-1726126680450-0"
+      style="min-height: 10px; min-width: 1px;"
+    ></div>
+    <button class="copy-link" onclick="copyPostLink()">Copy Post Link</button>
+    ||
+    <a href="/p/post-add.html">
+      <button class="copy-link">Create link Post</button></a
+    >
+    <input id="postLinkInput" readonly="" type="text" />
+  </div>
+  <div
+    id="div-gpt-ad-1724004222170-0"
+    style="min-height: 10px; min-width: 1px; text-align: center;"
+  ></div>
+</div>
+
+<script> 
+  const firebaseConfig = {
+    apiKey: "AIzaSyCkWQqHcf64EvAwMYQlxo8P8xvTU0IZzgw",
+    authDomain: "https://ezn3je-default-rtdb.firebaseio.com/",
+    databaseURL: "https://ezn3je-default-rtdb.firebaseio.com/",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "1:988656765333:android:ab54ce6627f1a47d638e9c"
+  };
+  const pagePath = "p/post.html";
+</script><script
+  src="/Poat-view.js"
+></script>
+<script>
+  function adLoad(){
+     (adsbygoogle = window.adsbygoogle || []).push({});
+      closeBtn.addEventListener('click', function() {
+          popup.style.display = 'none';
+
+      });
+     googletag.cmd.push(function() { googletag.display('div-gpt-ad-1724004222170-0'); });
+  }
+ const AdsPop = `Advertisement:  <br>
+      <center>
+<!-- filmywold.com-1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6098720986833067"
+     data-ad-slot="3102856587"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+      </center>
+
+      `;
+ const timeLefTs = 5
+</script>
+<script
+  async=""
+  src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
+></script>
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/22783117757/Ads2/Bottom-ads', [[300, 250], [200, 200], [300, 100], [240, 400]], 'div-gpt-ad-1724004222170-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+  //2
+</script>
+<script
+  async
+  src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
+></script>
+
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/22783117757/6098720986833067', [[300, 100], [88, 31], [320, 50]], 'div-gpt-ad-1726126680450-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+   window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/22783117757/Ads2', [[250, 250], [250, 360], [120, 240], [320, 480], [580, 400], [300, 250]], 'div-gpt-ad-1730957275462-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<script
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6098720986833067"
+  crossorigin="anonymous"
+></script>
