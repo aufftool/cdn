@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Multiple Links</title>
+    <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <style>
+/* post.html */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+}
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#shareableLink {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#shareableLinkInput {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#shareableLink button {
+    background-color: #28a745;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+}
+
+#shareableLink button:hover {
+    background-color: #218838;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Post Multiple Links</h1>
+    <form id="linkForm">
+        <input type="text" id="postTitle" placeholder="Enter post title" required>
+        <div id="linksContainer">
+            <div class="link-group">
+                <input type="text" class="titleInput" placeholder="Enter the link title" required>
+                <input type="text" class="linkInput" placeholder="Enter the link URL" required>
+            </div>
+        </div>
+        <button type="button" onclick="addLinkGroup()">Add Another Link</button>
+        <button type="submit">Post All Links</button>
+    </form>
+    
+    <div id="shareableLink" style="display:none;">
+        <h2>Shareable Link:</h2>
+        <input type="text" id="shareableLinkInput" readonly>
+        <button onclick="copyLink()">Copy to Clipboard</button>
+    </div>
+
+    <script>
+        // Your Firebase configuration
+        const firebaseConfig = {
+  apiKey: "AIzaSyCkWQqHcf64EvAwMYQlxo8P8xvTU0IZzgw",
+  authDomain: "https://ezn3je-default-rtdb.firebaseio.com/",
+  databaseURL: "https://ezn3je-default-rtdb.firebaseio.com/",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "1:988656765333:android:ab54ce6627f1a47d638e9c"
+};
+      const viewPath = "p/post.html";
+
+    </script>
+  <script
+  src="add.js"
+></script>
+</body>
+</html>
